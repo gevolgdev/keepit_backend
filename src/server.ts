@@ -1,4 +1,5 @@
 import Fastify from 'fastify'
+import modules from './modules'
 
 function buildServer() {
 	const server = Fastify({
@@ -10,6 +11,10 @@ function buildServer() {
 	server.get('/', async (request, reply) => {
 		return { hello: 'world' }
 	})
+
+	for (const { module, prefix } of modules) {
+		server.register(module, { prefix })
+	}
 
 	return server
 }

@@ -2,13 +2,10 @@ import { PrismaClient, Prisma } from '@prisma/client'
 import { IRepository } from './repository.interface'
 
 export class BaseRepository<T> implements IRepository<T> {
-	private readonly prisma: PrismaClient
+	protected prisma: PrismaClient
 	private readonly modelName: Prisma.ModelName
 
-	constructor(
-		prisma: PrismaClient,
-		modelName: Prisma.ModelName,
-	) {
+	constructor(prisma: PrismaClient, modelName: Prisma.ModelName) {
 		this.prisma = prisma
 		this.modelName = modelName
 	}
@@ -25,15 +22,10 @@ export class BaseRepository<T> implements IRepository<T> {
 	}
 
 	public async read(): Promise<T[]> {
-		return this.prisma[
-			this.modelName
-		].findMany() as Promise<T[]>
+		return this.prisma[this.modelName].findMany() as Promise<T[]>
 	}
 
-	public async update(
-		id: string,
-		data: Partial<T>,
-	): Promise<T> {
+	public async update(id: string, data: Partial<T>): Promise<T> {
 		return this.prisma[this.modelName].update({
 			where: { id },
 			data,

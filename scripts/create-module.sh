@@ -24,6 +24,7 @@ echo "// Interface para o módulo $MODULE_NAME" > "$BASE_PATH/interface/$MODULE_
 echo "// Controlador do módulo $MODULE_NAME" > "$BASE_PATH/$MODULE_NAME.controller.ts"
 echo "// Requisições HTTP relacionadas ao módulo $MODULE_NAME" > "$BASE_PATH/$MODULE_NAME.http"
 echo "// Serviço do módulo $MODULE_NAME" > "$BASE_PATH/$MODULE_NAME.service.ts"
+echo "// Serviço do módulo $MODULE_NAME" > "$BASE_PATH/$MODULE_NAME.routes.ts"
 
 # Mensagem de sucesso
 echo "Estrutura do módulo '$MODULE_NAME' criada com sucesso em $BASE_PATH!"
