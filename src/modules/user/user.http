@@ -1,1 +1,21 @@
 // Requisições HTTP relacionadas ao módulo user
+
+###
+POST http://localhost:3333/api/user/create-user
+Content-Type: application/json
+
+{
+	"name": "Ricardo Pinelli",
+	"email": "ricardo@gmail.com",
+	"password": "123456"
+}
+
+
+###
+POST http://localhost:3333/api/user/sign-in
+Content-Type: application/json
+
+{
+	"email": "ricardo@gmail.com",
+	"password": "123456"
+}

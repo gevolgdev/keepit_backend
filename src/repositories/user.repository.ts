@@ -10,4 +10,10 @@ export class UserRepository extends BaseRepository<IUser> {
 	async createUser(data: IUser) {
 		return this.create(data)
 	}
+
+	async findUserByEmail(email: string) {
+		return this.prisma.user.findUnique({
+			where: { email },
+		})
+	}
 }
