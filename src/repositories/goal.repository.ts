@@ -3,9 +3,9 @@ import { IGoal } from '../modules/goal/interface/goal.interface'
 import { BaseRepository } from './base/baseRepository'
 import { IGoalDto } from '../modules/goal/dto/goal.dto'
 
-export class GoalRepository extends BaseRepository<IGoal> {
-	constructor(prisma: PrismaClient) {
-		super(prisma, 'Goal')
+export class GoalRepository {
+	constructor(private readonly prisma: PrismaClient) {
+		this.prisma = prisma
 	}
 
 	async getGoalsByUserId(userId: number) {

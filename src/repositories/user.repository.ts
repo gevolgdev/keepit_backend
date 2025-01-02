@@ -2,13 +2,15 @@ import { PrismaClient } from '@prisma/client'
 import { IUser } from '../modules/user/interface/user.interface'
 import { BaseRepository } from './base/baseRepository'
 
-export class UserRepository extends BaseRepository<IUser> {
-	constructor(prisma: PrismaClient) {
-		super(prisma, 'User')
+export class UserRepository {
+	constructor(private readonly prisma: PrismaClient) {
+		this.prisma = prisma
 	}
 
 	async createUser(data: IUser) {
-		return this.create(data)
+		return this.prisma.user.create({
+			data,
+		})
 	}
 
 	async findUserByEmail(email: string) {

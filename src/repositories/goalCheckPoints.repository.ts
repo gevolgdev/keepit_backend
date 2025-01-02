@@ -2,9 +2,9 @@ import { Prisma, PrismaClient } from '@prisma/client'
 import { BaseRepository } from './base/baseRepository'
 import { IGoalCheckPoints } from '../modules/goalCheckPoints/interface/goalCheckPoints.interface'
 
-export class GoalCheckPointsRepository extends BaseRepository<any> {
-	constructor(prisma: PrismaClient) {
-		super(prisma, 'GoalCheckPoints')
+export class GoalCheckPointsRepository {
+	constructor(private readonly prisma: PrismaClient) {
+		this.prisma = prisma
 	}
 
 	async createCheckPoint(goalId: number, data: IGoalCheckPoints) {
