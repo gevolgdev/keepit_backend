@@ -13,6 +13,9 @@ export class GoalRepository extends BaseRepository<IGoal> {
 			where: {
 				userId,
 			},
+			include: {
+				GoalCheckPoints: true,
+			},
 		})
 	}
 

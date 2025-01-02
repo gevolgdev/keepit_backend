@@ -2,44 +2,44 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String @unique
-  password String
-  Goal     Goal[]
+    id       Int    @id @default(autoincrement())
+    name     String
+    email    String @unique
+    password String
+    Goal     Goal[]
 
-  @@index([id])
+    @@index([id])
 }
 
 model Goal {
-  id              Int               @id @default(autoincrement())
-  userId          Int
-  title           String
-  description     String
-  priority        Int
-  startDate       String
-  endDate         String
-  User            User              @relation(fields: [userId], references: [id])
-  GoalCheckPoints GoalCheckPoints[]
+    id              Int               @id @default(autoincrement())
+    userId          Int
+    title           String
+    description     String
+    priority        Int
+    startDate       String
+    endDate         String
+    User            User              @relation(fields: [userId], references: [id])
+    GoalCheckPoints GoalCheckPoints[]
 
-  @@index([id])
+    @@index([id])
 }
 
 model GoalCheckPoints {
-  id             Int    @id @default(autoincrement())
-  date           String
-  goalId         Int
-  goalAssessment String
-  Goal           Goal   @relation(fields: [goalId], references: [id])
+    id             Int    @id @default(autoincrement())
+    date           String
+    goalId         Int
+    goalAssessment String
+    Goal           Goal   @relation(fields: [goalId], references: [id])
 
-  @@index([id])
+    @@index([id])
 }
