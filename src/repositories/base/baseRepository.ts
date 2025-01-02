@@ -9,7 +9,7 @@ export class BaseRepository<T> implements IRepository<T> {
 		this.prisma = prisma
 		this.modelName = modelName
 	}
-	public async findOne(id: string): Promise<T> {
+	public async findOne(id: number): Promise<T> {
 		return this.prisma[this.modelName].findUnique({
 			where: { id },
 		}) as Promise<T>
@@ -21,18 +21,18 @@ export class BaseRepository<T> implements IRepository<T> {
 		}) as Promise<T>
 	}
 
-	public async read(): Promise<T[]> {
+	public async read(id: number): Promise<T[]> {
 		return this.prisma[this.modelName].findMany() as Promise<T[]>
 	}
 
-	public async update(id: string, data: Partial<T>): Promise<T> {
+	public async update(id: number, data: Partial<T>): Promise<T> {
 		return this.prisma[this.modelName].update({
 			where: { id },
 			data,
 		}) as Promise<T>
 	}
 
-	public async delete(id: string): Promise<void> {
+	public async delete(id: number): Promise<void> {
 		await this.prisma[this.modelName].delete({
 			where: { id },
 		})

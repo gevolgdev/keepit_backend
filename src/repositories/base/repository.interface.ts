@@ -1,7 +1,7 @@
 export interface IRepository<T> {
 	create(data: T): Promise<T>
-	read(): Promise<T[]>
-	findOne(id: string): Promise<T>
-	update(id: string, data: T): Promise<T>
-	delete(id: string): Promise<void>
+	read(id: number): Promise<T[]>
+	findOne(id: number): Promise<T>
+	update(id: number, data: T): Promise<T>
+	delete(id: number): Promise<void>
 }
