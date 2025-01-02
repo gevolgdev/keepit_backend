@@ -1,4 +1,5 @@
 import { goalRoutes } from './goal/goal.routes'
+import { goalCheckPointsRoutes } from './goalCheckPoints/goalCheckPoints.routes'
 import { userRoutes } from './user/user.routes'
 
 export default [
@@ -9,5 +10,9 @@ export default [
 	{
 		module: goalRoutes,
 		prefix: '/api/goal',
+	},
+	{
+		module: goalCheckPointsRoutes,
+		prefix: '/api/goalCheckPoints',
 	},
 ]
