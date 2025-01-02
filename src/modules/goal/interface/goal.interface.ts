@@ -1,8 +1,8 @@
-interface IGoal {
+export interface IGoal {
 	userId: number
 	title: string
 	description: string
 	priority: number
-	startDate: Date
-	endDate: Date
+	startDate: string
+	endDate: string
 }
