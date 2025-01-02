@@ -1,11 +1,11 @@
-import { prisma } from '../../../common/utils/prisma'
+import prismaInstance from '../../../common/utils/prismaInstance'
 import { GoalRepository } from '../../../repositories/goal.repository'
 import { GoalController } from '../goal.controller'
 import { GoalService } from '../goal.service'
 
 export class GoalFactory {
 	static goalService() {
-		const goalRepository = new GoalRepository(prisma)
+		const goalRepository = new GoalRepository(prismaInstance)
 		return new GoalService(goalRepository)
 	}
 
