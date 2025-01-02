@@ -1,0 +1,8 @@
+// Requisições HTTP relacionadas ao módulo goalCheckPoints
+
+POST http://localhost:3333/api/goalCheckPoints/create?goalId=2
+Content-Type: application/json
+
+{
+	"goalAssessment": "Ótimo"
+}
