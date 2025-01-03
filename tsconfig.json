@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "ESNext", // Gera código ES Modules
+		"target": "ES2020", // Garante suporte a recursos modernos
+		"moduleResolution": "node", // Resolve módulos no estilo Node.js
+		"outDir": "./dist", // Pasta de saída
+		"strict": true, // Reforça boas práticas de TypeScript
+		"esModuleInterop": true, // Facilita importação de dependências CommonJS
+		"skipLibCheck": true, // Ignora verificação de tipos em bibliotecas
+		"resolveJsonModule": true // Permite importar arquivos JSON
+	},
+	"include": ["src/**/*.ts"], // Inclui os arquivos TypeScript
+	"exclude": ["node_modules", "dist"] // Exclui a pasta de saída e dependências
+}
