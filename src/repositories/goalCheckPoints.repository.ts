@@ -1,5 +1,4 @@
-import { Prisma, PrismaClient } from '@prisma/client'
-import { BaseRepository } from './base/baseRepository'
+import { PrismaClient } from '@prisma/client'
 import { IGoalCheckPoints } from '../modules/goalCheckPoints/interface/goalCheckPoints.interface'
 
 export class GoalCheckPointsRepository {

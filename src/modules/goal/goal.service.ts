@@ -8,8 +8,7 @@ export class GoalService {
 	}
 
 	async getAllGoals(userId: number) {
-		const getAllGoals =
-			await this.goalRepository.getGoalsByUserId(userId)
+		const getAllGoals = await this.goalRepository.getGoalsByUserId(userId)
 
 		return getAllGoals
 	}
@@ -23,7 +22,7 @@ export class GoalService {
 			return null
 		}
 
-		const goalCreated = await this.goalRepository.create(data)
+		const goalCreated = await this.goalRepository.createGoal(data)
 
 		return goalCreated
 	}
@@ -38,8 +37,7 @@ export class GoalService {
 	}
 
 	async deleteGoal(goalId: number) {
-		const goalDeleted =
-			await this.goalRepository.deleteGoalById(goalId)
+		const goalDeleted = await this.goalRepository.deleteGoalById(goalId)
 
 		return goalDeleted
 	}

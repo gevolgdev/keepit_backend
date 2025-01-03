@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client'
-import { IGoal } from '../modules/goal/interface/goal.interface'
-import { BaseRepository } from './base/baseRepository'
 import { IGoalDto } from '../modules/goal/dto/goal.dto'
+import { IGoal } from '../modules/goal/interface/goal.interface'
 
 export class GoalRepository {
 	constructor(private readonly prisma: PrismaClient) {
@@ -16,6 +15,12 @@ export class GoalRepository {
 			include: {
 				GoalCheckPoints: true,
 			},
+		})
+	}
+
+	async createGoal(data: IGoal) {
+		return await this.prisma.goal.create({
+			data,
 		})
 	}
 
